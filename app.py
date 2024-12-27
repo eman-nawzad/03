@@ -1,4 +1,5 @@
 import streamlit as st
+import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
 import json

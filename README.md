@@ -12,6 +12,8 @@ You can install the dependencies using:
 
 ```bash
 pip install -r requirements.txt
+pip install geopandas
+
 streamlit run app.py
 
 

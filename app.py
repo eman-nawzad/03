@@ -5,10 +5,15 @@ from streamlit_folium import st_folium
 
 # Function to load the GeoJSON file
 def load_geojson(file_path):
+    st.write(f"Loading GeoJSON from {file_path}")
     return gpd.read_file(file_path)
 
 # Load SVI GeoJSON data
-svi_geojson = load_geojson('SVI_NDVI_Export.geojson')
+try:
+    svi_geojson = load_geojson('SVI_NDVI_Export.geojson')
+    st.write("GeoJSON loaded successfully")
+except Exception as e:
+    st.write(f"Error loading GeoJSON: {e}")
 
 # Streamlit layout
 st.title("Drought Monitoring with SVI Data")
@@ -26,5 +31,6 @@ st_folium(m, width=700, height=500)
 # Display a summary of the data
 st.subheader("SVI Data Summary")
 st.write(svi_geojson.head())
+
 
 

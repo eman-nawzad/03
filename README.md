@@ -21,7 +21,8 @@ The NDVI values are used to assess crop suitability:
 
 ## Repository Structure
 - `app.py`: Streamlit application script that loads, processes, and displays the data on an interactive map.
-- `SVI_NDVI_Export.geojson`: GeoJSON data file containing SPI and NDVI values for the region of interest.
+- `SPI_12_GeoJSON.geojson`: GeoJSON data file containing SPI data for the region of interest.
+- `SVI_NDVI_Export.geojson`: GeoJSON data file containing NDVI values for the region of interest.
 - `requierment.txt`: A text file with the list of Python dependencies for running the app.
 
 ## Installation and Usage
@@ -30,4 +31,5 @@ To run this application on your local machine, follow these steps:
 ### 1. Clone this repository:
 ```bash
 git clone https://github.com/eman-nawzad/03.git
+
 

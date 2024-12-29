@@ -7,8 +7,8 @@ This Streamlit application provides a visualization for drought monitoring using
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/eman-nawzad/drought-monitoring.git
-cd drought-monitoring
+git clone https://github.com/eman-nawzad/03.git
+cd 03
 
 
 pip install -r requirements.txt

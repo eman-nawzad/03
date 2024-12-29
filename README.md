@@ -32,4 +32,5 @@ To run this application on your local machine, follow these steps:
 ```bash
 git clone https://github.com/eman-nawzad/03.git
 
+streamlit run app.py
 

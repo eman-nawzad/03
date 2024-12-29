@@ -5,7 +5,11 @@ from streamlit_folium import st_folium
 
 # Load GeoJSON data
 @st.cache_data
-def load_data():
+def load_spi_data():
+    return gpd.read_file("SPI_12_GeoJSON.geojson")
+
+@st.cache_data
+def load_ndvi_data():
     return gpd.read_file("SVI_NDVI_Export.geojson")
 
 # Add SPI thresholds legend
@@ -65,14 +69,15 @@ show_drought = st.sidebar.checkbox("Show Drought Data (SPI)", value=True)
 show_ndvi = st.sidebar.checkbox("Show Crop Suitability (NDVI)", value=True)
 
 # Load data
-data = load_data()
+spi_data = load_spi_data()
+ndvi_data = load_ndvi_data()
 
 # Create map
-m = folium.Map(location=[data.geometry.centroid.y.mean(), data.geometry.centroid.x.mean()], zoom_start=8)
+m = folium.Map(location=[spi_data.geometry.centroid.y.mean(), spi_data.geometry.centroid.x.mean()], zoom_start=8)
 
 # Add SPI drought data
 if show_drought:
-    for _, row in data.iterrows():
+    for _, row in spi_data.iterrows():
         color = classify_drought(row["SPI"])
         folium.GeoJson(
             row.geometry,
@@ -87,7 +92,7 @@ if show_drought:
 
 # Add NDVI suitability data
 if show_ndvi:
-    for _, row in data.iterrows():
+    for _, row in ndvi_data.iterrows():
         color = classify_ndvi(row["NDVI"])
         folium.GeoJson(
             row.geometry,
@@ -102,4 +107,5 @@ if show_ndvi:
 
 # Render map
 st_folium(m, width=700, height=500)
+
 

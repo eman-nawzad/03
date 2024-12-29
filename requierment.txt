@@ -3,3 +3,5 @@ geopandas
 folium
 streamlit-folium
 matplotlib
+cd /path/to/your/project
+
